@@ -1,0 +1,47 @@
+.zeroWidth {
+  width: 0;
+}
+
+.box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height: 200px;
+  padding: 16px;
+  background: light-dark(
+    var(--tokyo-day-background),
+    var(--tokyo-night-background)
+  );
+  border: 2px double
+    light-dark(var(--tokyo-day-purple), var(--tokyo-night-purple));
+}
+
+.front {
+  transform: translate(-50%, -50%) perspective(2000px) rotateY(0deg);
+  transition: all 0.3s linear;
+  backface-visibility: hidden;
+  /* position: relative; */
+}
+
+.back {
+  transform: translate(-50%, -50%) perspective(2000px) rotateY(180deg);
+  transition: all 0.3s linear;
+  backface-visibility: hidden;
+}
+
+.showBack .back {
+  transform: translate(-50%, -50%) perspective(2000px) rotateY(0deg);
+}
+
+.showBack .front {
+  transform: translate(-50%, -50%) perspective(2000px) rotateY(-180deg);
+}
+
+.showFront .front {
+  transform: translate(-50%, -50%) perspective(2000px) rotateY(0deg);
+}
+
+.showFront .back {
+  transform: translate(-50%, -50%) perspective(2000px) rotateY(180deg);
+}
