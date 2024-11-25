@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-type ColourScheme = 'light' | 'dark';
+export type ColourScheme = 'light' | 'dark';
 export function useColourScheme(): [
   ColourScheme,
   (sheme: ColourScheme) => void,
