@@ -6,8 +6,8 @@ import { TracingInstrumentation } from '@grafana/faro-web-tracing';
 
 export function Faro() {
   useEffect(() => {
-    console.log('env', process.env.PUBLIC_ENV);
-    if (process.env.PUBLIC_ENV !== 'production') return;
+
+    if (window.location.host !== "matt-thorn.ing") return;
 
     initializeFaro({
       url: 'https://faro-collector-prod-eu-west-2.grafana.net/collect/2d5bf727104966cc9012e43a2f0c93b3',
