@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useState, useCallback } from 'react';
-import { setup, assign } from 'xstate';
+import { setup } from 'xstate';
 import { useMachine } from '@xstate/react';
 import { FaSun, FaMoon } from 'react-icons/fa';
 import { constants } from '@/css-vars';
@@ -14,7 +14,6 @@ const machineConfig = {
   initial: 'init',
   context: ({ input }: { input: { startMode: ColourScheme } }) => ({
     startMode: input.startMode,
-    silent: false,
   }),
   states: {
     init: {
@@ -42,15 +41,9 @@ const machineConfig = {
       on: {
         toggle: {
           target: 'toLight',
-          actions: assign({
-            silent: false,
-          }),
         },
         light: {
           target: 'light',
-          actions: assign({
-            silent: true,
-          }),
         },
       },
       tags: ['dark'],
@@ -68,14 +61,8 @@ const machineConfig = {
     light: {
       on: {
         target: 'toDark',
-        actions: assign({
-          silent: false,
-        }),
         light: {
           target: 'dark',
-          actions: assign({
-            silent: true,
-          }),
         },
       },
       tags: ['light'],
@@ -87,7 +74,6 @@ const themeToggleMachine = setup({
   types: {
     context: {} as {
       startMode: ColourScheme;
-      silent: boolean;
     },
     input: {} as {
       startMode: ColourScheme;
@@ -110,8 +96,8 @@ export default function ThemeToggle() {
   const [state, send] = useMachine(
     themeToggleMachine.provide({
       actions: {
-        setColourScheme: ({ context }, params: { scheme: ColourScheme }) => {
-          if (!context.silent) setColourScheme(params.scheme);
+        setColourScheme: (_, params: { scheme: ColourScheme }) => {
+          setColourScheme(params.scheme);
         },
       },
     }),
