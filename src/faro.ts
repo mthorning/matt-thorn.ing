@@ -6,6 +6,7 @@ import { TracingInstrumentation } from '@grafana/faro-web-tracing';
 
 export function Faro() {
   useEffect(() => {
+    console.log('env', process.env.PUBLIC_ENV);
     if (process.env.PUBLIC_ENV !== 'production') return;
 
     initializeFaro({
