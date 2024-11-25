@@ -9,8 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@grafana/faro-web-sdk": "^1.12.2",
+    "@grafana/faro-web-tracing": "^1.12.2",
     "@xstate/react": "^5.0.0",
     "clsx": "^2.1.1",
+    "import-in-the-middle": "^1.11.2",
     "next": "15.0.3",
     "react": "19.0.0-rc-66855b96-20241106",
     "react-dom": "19.0.0-rc-66855b96-20241106",
