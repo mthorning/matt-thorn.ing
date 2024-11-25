@@ -1,3 +1,10 @@
+.container {
+  background: linear-gradient(
+    light-dark(var(--light-base-100), var(--dark-base-100)) 30%,
+    light-dark(var(--light-base-300), var(--dark-base-300))
+  );
+}
+
 .zeroWidth {
   width: 0;
 }
@@ -6,42 +13,110 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 350px;
-  height: 200px;
-  padding: 16px;
-  background: light-dark(
-    var(--tokyo-day-background),
-    var(--tokyo-night-background)
-  );
-  border: 2px double
-    light-dark(var(--tokyo-day-purple), var(--tokyo-night-purple));
+  width: 98vw;
+  max-width: 500px;
+  height: 300px;
+  padding: 32px 0;
+  background: light-dark(var(--light-base-200), var(--dark-base-200));
+  border: 2px double light-dark(var(--light-secondary), var(--dark-secondary));
 }
 
-.front {
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.cardContent {
+  flex: 1 0 auto;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-around;
+  padding: 8px;
+}
+
+.welcome {
   transform: translate(-50%, -50%) perspective(2000px) rotateY(0deg);
-  transition: all 0.3s linear;
+  transition: all calc(var(--const-transition-speed) * 1ms) linear;
   backface-visibility: hidden;
-  /* position: relative; */
 }
 
-.back {
+.about {
   transform: translate(-50%, -50%) perspective(2000px) rotateY(180deg);
-  transition: all 0.3s linear;
+  transition: all calc(var(--const-transition-speed) * 1ms) linear;
   backface-visibility: hidden;
+  padding: 32px 8px;
 }
 
-.showBack .back {
-  transform: translate(-50%, -50%) perspective(2000px) rotateY(0deg);
+.aboutContent {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
 }
 
-.showBack .front {
-  transform: translate(-50%, -50%) perspective(2000px) rotateY(-180deg);
+.aboutName {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+
+  h1 {
+    line-height: 32px;
+  }
 }
 
-.showFront .front {
-  transform: translate(-50%, -50%) perspective(2000px) rotateY(0deg);
+.aboutLinks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  padding-top: 24px;
+
+  p {
+    word-break: break-word;
+    margin-top: 20px;
+
+    a {
+      white-space: nowrap;
+    }
+  }
 }
 
-.showFront .back {
-  transform: translate(-50%, -50%) perspective(2000px) rotateY(180deg);
+.aboutFooter {
+  display: flex;
+  justify-content: space-between;
+  margin: auto 12px 0;
+
+  a {
+    border: none;
+    font-size: 20px;
+  }
+}
+
+.separator {
+  height: 100%;
+  background: light-dark(var(--light-base-content), var(--dark-base-content));
+  width: 0.5px;
+  margin: 0 8px;
+}
+
+.showAbout {
+  .about {
+    transform: translate(-50%, -50%) perspective(2000px) rotateY(0deg);
+  }
+  .welcome {
+    transform: translate(-50%, -50%) perspective(2000px) rotateY(-180deg);
+  }
+}
+
+.showWelcome {
+  .welcome {
+    transform: translate(-50%, -50%) perspective(2000px) rotateY(0deg);
+  }
+  .about {
+    transform: translate(-50%, -50%) perspective(2000px) rotateY(180deg);
+  }
 }

@@ -1,0 +1,21 @@
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.innerContainer {
+  margin: 0 4px;
+  display: inherit;
+}
+
+.astro {
+  fill: #939393;
+}
+
+.moon {
+  fill: #d1d14e;
+}
+
+.sun {
+  fill: #ffb500;
+}

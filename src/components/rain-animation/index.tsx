@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useRef, type MutableRefObject } from 'react';
-import { colours as tokyoColours } from '@/app/tokyo-colours'; 
-import {matchesColorScheme} from '@/utils';
+import { colours } from '@/css-vars'; 
+import {useColourScheme} from '@/hooks';
 
 export default function RainAnimation({
   objRef
@@ -9,6 +9,7 @@ export default function RainAnimation({
   objRef: MutableRefObject<HTMLElement | null>
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [colourScheme] = useColourScheme();
 
   useEffect(() => {
     if(!canvasRef?.current) return;
@@ -31,16 +32,17 @@ export default function RainAnimation({
 
     if (!context) throw new Error('No context');
 
-    const colours = tokyoColours[matchesColorScheme('light') ? 'day' : 'night'];
+    const cols = colours[colourScheme];
+
     class RainDrop {
-      static baseColour = colours.comment 
-      static highlightColours = [colours.purple, colours.pink];
+      static baseColour = cols.neutral 
+      static highlightColours = [cols.primary, cols.secondary];
 
       x: number = 0;
       y: number = 0;
       gravity: number = 0;
       rainDropTrailWidth: number = 2;
-      strokeColor: string = '#000';
+      strokeColor: string = cols.neutral;
       hasFallen: boolean = false;
 
       constructor() {
@@ -132,16 +134,17 @@ export default function RainAnimation({
 
     const cloud = new Cloud(Math.max(window.innerWidth, 1200), 500);
 
-    setInterval(() => {
+    const interval = setInterval(() => {
       context.clearRect(0, 0, canvasRef.current!.width, canvasRef.current!.height);
       cloud.rain();
     }, 15);
 
     return () => {
+      clearInterval(interval);
       window.removeEventListener('resize', () => setSize());
       window.removeEventListener('scroll', () => setCoords());
     }
-  }, [objRef]);
+  }, [objRef, colourScheme]);
 
   return <canvas ref={canvasRef} />
 }
