@@ -62,10 +62,10 @@
   flex-direction: column;
   justify-content: center;
   height: 100%;
+}
 
-  h1 {
-    line-height: 32px;
-  }
+.aboutName h1 {
+  line-height: 32px;
 }
 
 .aboutLinks {
@@ -74,26 +74,25 @@
   justify-content: space-around;
   height: 100%;
   padding-top: 24px;
+}
+.aboutLinks p {
+  word-break: break-word;
+  margin-top: 20px;
+}
 
-  p {
-    word-break: break-word;
-    margin-top: 20px;
-
-    a {
-      white-space: nowrap;
-    }
-  }
+.aboutLinks p a {
+  white-space: nowrap;
 }
 
 .aboutFooter {
   display: flex;
   justify-content: space-between;
   margin: auto 12px 0;
+}
 
-  a {
-    border: none;
-    font-size: 20px;
-  }
+.aboutFooter a {
+  border: none;
+  font-size: 20px;
 }
 
 .separator {
