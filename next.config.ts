@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
-import createMDX from '@next/mdx'
+import withMDX from '@next/mdx'
+import prism from 'remark-prism'
 
 const nextConfig: NextConfig = {
   experimental: {
@@ -9,8 +10,9 @@ const nextConfig: NextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
 };
 
-const withMDX = createMDX({
-  // Add markdown plugins here, as desired
-})
-
-export default withMDX(nextConfig)
+export default withMDX({
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+})(nextConfig)

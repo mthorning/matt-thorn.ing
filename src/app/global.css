@@ -1,6 +1,6 @@
 :root {
   --dark-base-100: '#1d232a', --light-base-100: '#faf7f5',
-    --background: light-dark(var(--light-base-100), var(--dark-base-100));
+  --background: light-dark(var(--light-base-100), var(--dark-base-100));
   --color: light-dark(var(--light-neutral), var(--dark-neutral));
 
   color-scheme: light dark;
@@ -26,14 +26,6 @@ body {
 
   color: var(--color);
   background: var(--background);
-}
-
-h1 {
-  color: light-dark(var(--light-primary), var(--dark-primary));
-}
-
-h3 {
-  color: light-dark(var(--light-secondary), var(--dark-secondary));
 }
 
 /* 5. Improve media defaults */
