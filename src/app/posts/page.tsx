@@ -1,15 +1,16 @@
 import Link from 'next/link'
-import { formatDate, getBlogPosts } from './utils/blog'
+import { getAllPosts } from './utils'
 
 export default function BlogPosts() {
-  const allBlogs = getBlogPosts()
+  const allPosts = getAllPosts()
 
+  console.log(allPosts)
   return (
     <div>
-      {allBlogs
+      {allPosts
         .sort((a, b) => {
           if (
-            new Date(a.metadata.date) > new Date(b.metadata.date)
+            new Date(a.data.date) > new Date(b.data.date)
           ) {
             return -1
           }
@@ -17,12 +18,12 @@ export default function BlogPosts() {
         })
         .map((post) => (
           <Link
-            key={post.slug}
-            href={`/posts/${post.slug}`}
+            key={post.data.slug}
+            href={`/posts/${post.data.slug}`}
           >
             <div>
               <p>
-                {post.metadata.title}
+                {post.data.title}
               </p>
             </div>
           </Link>
