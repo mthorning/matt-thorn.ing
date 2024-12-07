@@ -26,6 +26,7 @@ body {
 
   color: var(--color);
   background: var(--background);
+  font-family: var(--font-quicksand);
 }
 
 /* 5. Improve media defaults */

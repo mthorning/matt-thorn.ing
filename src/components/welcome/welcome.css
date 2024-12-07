@@ -1,0 +1,8 @@
+h1 {
+  color: light-dark(var(--light-primary), var(--dark-primary));
+}
+
+h3 {
+  color: light-dark(var(--light-secondary), var(--dark-secondary));
+}
+

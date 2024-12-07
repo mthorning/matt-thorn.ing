@@ -8,11 +8,13 @@ import { useMachine } from '@xstate/react';
 import RainAnimation from '@/components/rain-animation';
 import ThemeToggle from '@/components/theme-toggle';
 import { constants } from '@/css-vars';
-import classes from './welcome.module.css';
 import { FaGithub, FaLinkedin, FaBluesky } from 'react-icons/fa6';
 
+import './welcome.css';
+import classes from './welcome.module.css';
+
 function A(props: ComponentProps<typeof Link>) {
-  return <Link {...props} target="_blank" rel="noopener noreferrer" />;
+return <Link {...props} target="_blank" rel="noopener noreferrer" />;
 }
 
 const businessCardMachine = setup({

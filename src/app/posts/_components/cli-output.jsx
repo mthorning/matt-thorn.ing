@@ -1,23 +1,26 @@
-import React from 'react'
-import { css } from '@emotion/react'
+import React from 'react';
 
-const style = css`
-  display: block;
-  overflow-x: auto;
-  background: #f1f1f1;
-  color: #6e6b5e;
-  padding: 0.5em;
+const style = {
+  display: 'block',
+  overflowX: 'auto',
+  background: 'light-dark(var(--light-base-300), var(--dark-base-300))',
+  color: 'light-dark(var(--light-base-content), var(--dark-base-content))',
+  padding: '0.5em',
+  margin: '24px 0',
+};
+const errorStyle = {
+  border: '0.5em solid #e8111294',
+};
 
-  body.dark & {
-    background: #1e1e1e;
-    color: rgb(212, 212, 212);
-  }
-`
-const errorStyle = css`
-  border: 0.5em solid #e8111294;
-`
 export default function CliOutput({ output, error }) {
-  const styles = [style]
-  if (error) styles.push(errorStyle)
-  return <pre css={styles}>{output}</pre>
+  return (
+    <pre
+      style={{
+        ...style,
+        ...(error ? errorStyle : {}),
+      }}
+    >
+      {output}
+    </pre>
+  );
 }
