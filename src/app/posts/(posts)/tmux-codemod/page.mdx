@@ -13,7 +13,7 @@ There have been two tools which have helped me complete this task which I am goi
 
 [Codemod](https://github.com/facebook/codemod) is a command line tool written by Facebook. You give it a Regex pattern to search for and the code you want to replace it with and it will recursively search through your directories looking for every line that contains some text which matches your pattern. When it matches a line, it shows you a diff which you can either accept, decline or alter manually:
 
-![codemod output](codemod-output.jpg)
+![codemod output](/codemod-output.jpg)
 
 There are a load of options you can give it and you can do all sorts of clever stuff with Regex, such as capturing part of the pattern to use in the replacement; I only needed to do something very simple for this task though, here's an example using this blog's codebase:
 ```
@@ -36,7 +36,7 @@ The reason I have included Tmux in this post though is because it allows you to 
 
 So I can run `npm install` in all five apps, or commit and tag twelve component repos or, because I use Neovim as well, I can even do things like edit multiple `package.json` files in the time it would take me to edit one.
 
-![demo of synced panes](sync-panes.gif)
+![demo of synced panes](/sync-panes.gif)
 
 ---
 

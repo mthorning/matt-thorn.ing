@@ -134,11 +134,11 @@ First we create `parentObject`. Because we've used the object literal syntax thi
 
 Now, when we use `console.log` to print our `childObject` we should see:
 
-![console output of childObject](childObject.jpg)
+![console output of childObject](/childObject.jpg)
 
 The object has two properties, there is the `name` property which we just set and the `__proto___` property. `__proto__` isn't an actual property like `name`, it is  an accessor property to the internal prototype of the object. We can expand these to see our prototype chain:
 
-![expanded output of childObject](childObject_expanded.jpg)
+![expanded output of childObject](/childObject_expanded.jpg)
 
 The first `__proto___` contains the contents of `parentObject` which has its own `__proto___` containing the contents of `Object`. These are all of the properties and methods that are available to `childObject`.
 
