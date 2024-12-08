@@ -14,11 +14,12 @@ export default withMDX({
     jsx: true,
     remarkPlugins: [
       () =>
+        //@ts-expect-error I don't know what this is about and quite frankly do not care!
         remarkPrism({
           plugins: ['command-line', 'diff-highlight', 'line-numbers'],
         }),
       remarkFrontmatter,
-      remarkMdxFrontmatter
+      remarkMdxFrontmatter,
     ],
     rehypePlugins: [rehypeMdxImportMedia],
   },
