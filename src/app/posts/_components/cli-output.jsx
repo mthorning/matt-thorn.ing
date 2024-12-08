@@ -15,6 +15,7 @@ const errorStyle = {
 export default function CliOutput({ output, error }) {
   return (
     <pre
+      className="command-line"
       style={{
         ...style,
         ...(error ? errorStyle : {}),

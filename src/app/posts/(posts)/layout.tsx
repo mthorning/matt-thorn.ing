@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { getPostsMetadata } from '../utils';
 import BlogPost from './BlogPost';
 
@@ -8,8 +9,9 @@ export default function PostLayout({
 }>) {
   const metadata = getPostsMetadata();
   return (
-    <main className="container">
-      <BlogPost metadata={metadata}>{children}</BlogPost>
-    </main>
+    <>
+      <Link href="/posts">Back to posts</Link>
+      <BlogPost metadata={metadata}>{children}</BlogPost>;
+    </>
   );
 }
