@@ -170,7 +170,7 @@ Now that you've seen how the docs works we can query our API. Copy the following
 ```
 If everything's working correctly you should see the following:
 
-![Screenshot of response](graphiql_query.png)
+![Screenshot of response](/graphiql_query.png)
 
 The response is in the right hand pane. At the moment the array is empty because we haven't added anything yet, so let's write a mutation so that we can add some data.
 
@@ -231,11 +231,11 @@ A couple of things to mention here. After calling `create` with the values we wa
 
 You also may have noticed that we have started our request with the word `mutation`. When we made our query earlier, we did not need to label it because GraphQL assumes you are making a query unless you say otherwise. If you wish to make a query and a mutation in the same request then you need to label them both or else you will receive an error:
 
-![Screenshot of error message](graphiql_error.png)
+![Screenshot of error message](/graphiql_error.png)
  
 Hopefully you won't get an error though! You should get something like this:
 
-![Screenshot of error message](graphiql_create.png)
+![Screenshot of error message](/graphiql_create.png)
 
 You can see that the server has responded with the fields we requested from our newly created event. The ID was created for us by MongoDB, this is really useful because we can now use this ID to select the events that we want to update and delete.
 
@@ -296,7 +296,7 @@ The `delete` resolver only needs the `id` so it destructures it straight away an
 
 Let's try updating our record:
 
-![Screenshot of updated record](graphiql_update.png)
+![Screenshot of updated record](/graphiql_update.png)
 
 As you can see in the response, the title of our record has been correctly updated. Now let's delete it:
 
