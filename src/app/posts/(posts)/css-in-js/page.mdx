@@ -34,11 +34,11 @@ export default function TestComponent(props) {
 ```
 Notice that the string passed to the tagged template is actual CSS, there are no camel-cased keys, the values do not need to be wrapped in single quotes and the lines are terminated with semi-colons. At first I was disappointed because the syntax highlighting in VS Code was messed up but I added the [Babel Javascript](https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel) extension which formats the CSS as if it were in a _.css_ file so now it looks nice. :+1:
 
-![vs code syntax highlighting](syntax.JPG)
+![vs code syntax highlighting](/syntax.JPG)
 
 If you look at the markup you can see that Emotion assigns a class to the elements with a random string appended to it.
 
-![divs with classes](css_classnames.JPG)
+![divs with classes](/css_classnames.JPG)
 
 This scopes your CSS to the element it is applied to so it won't leak to other components, making your styling _component-based_ as opposed to _document-based_ which fits better with the way that React apps are written. If you want to set global styles then Emotion has a [Global component](https://emotion.sh/docs/globals) you can use, and there is nothing stopping you from using a global stylesheet in addition to your component-level styles.
 
