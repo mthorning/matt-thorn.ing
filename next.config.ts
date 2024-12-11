@@ -19,7 +19,7 @@ export default withMDX({
           plugins: ['command-line', 'diff-highlight', 'line-numbers'],
         }),
       remarkFrontmatter,
-      remarkMdxFrontmatter,
+      remarkMdxFrontmatter
     ],
     rehypePlugins: [rehypeMdxImportMedia],
   },

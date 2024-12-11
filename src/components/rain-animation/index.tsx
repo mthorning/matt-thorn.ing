@@ -1,18 +1,18 @@
 'use client';
 import { useEffect, useRef, type MutableRefObject } from 'react';
-import { colours } from '@/css-vars'; 
-import {useColourScheme} from '@/hooks';
+import { colours } from '@/css-vars';
+import { useColourScheme } from '@/hooks';
 
 export default function RainAnimation({
-  objRef
+  objRef,
 }: {
-  objRef: MutableRefObject<HTMLElement | null>
+  objRef: MutableRefObject<HTMLElement | null>;
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [colourScheme] = useColourScheme();
 
   useEffect(() => {
-    if(!canvasRef?.current) return;
+    if (!canvasRef?.current) return;
 
     const context = canvasRef.current.getContext('2d');
     let objCoords: DOMRect | undefined;
@@ -26,8 +26,8 @@ export default function RainAnimation({
       canvasRef.current!.width = innerWidth;
       setCoords();
     }
-    window.addEventListener('resize', () => setSize());
-    window.addEventListener('scroll', () => setCoords());
+    window.addEventListener('resize', setSize);
+    window.addEventListener('scroll', setCoords);
     setSize();
 
     if (!context) throw new Error('No context');
@@ -35,7 +35,7 @@ export default function RainAnimation({
     const cols = colours[colourScheme];
 
     class RainDrop {
-      static baseColour = cols.neutral 
+      static baseColour = cols.neutral;
       static highlightColours = [cols.primary, cols.secondary];
 
       x: number = 0;
@@ -63,10 +63,11 @@ export default function RainAnimation({
         context.lineWidth = this.rainDropTrailWidth;
         context.strokeStyle = this.strokeColor;
 
-        const splashY = objCoords ? 
-          this.x > objCoords.left && this.x < objCoords.right
+        const splashY = objCoords
+          ? this.x > objCoords.left && this.x < objCoords.right
             ? objCoords.top + window.scrollY
-            : undefined : window.scrollY;
+            : undefined
+          : window.scrollY;
 
         if (this.gravity > 3 && splashY && this.y + this.gravity >= splashY) {
           this.y = splashY;
@@ -135,16 +136,22 @@ export default function RainAnimation({
     const cloud = new Cloud(Math.max(window.innerWidth, 1200), 500);
 
     const interval = setInterval(() => {
-      context.clearRect(0, 0, canvasRef.current!.width, canvasRef.current!.height);
+      context.clearRect(
+        0,
+        0,
+        canvasRef.current!.width,
+        canvasRef.current!.height
+      );
       cloud.rain();
     }, 15);
 
     return () => {
+      console.log('unmounting rain');
       clearInterval(interval);
-      window.removeEventListener('resize', () => setSize());
-      window.removeEventListener('scroll', () => setCoords());
-    }
+      window.removeEventListener('resize', setSize);
+      window.removeEventListener('scroll', setCoords);
+    };
   }, [objRef, colourScheme]);
 
-  return <canvas ref={canvasRef} />
+  return <canvas ref={canvasRef} />;
 }

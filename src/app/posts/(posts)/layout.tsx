@@ -8,10 +8,5 @@ export default function PostLayout({
   children: React.ReactNode;
 }>) {
   const metadata = getPostsMetadata();
-  return (
-    <>
-      <Link href="/posts">Back to posts</Link>
-      <BlogPost metadata={metadata}>{children}</BlogPost>;
-    </>
-  );
+  return <BlogPost metadata={metadata}>{children}</BlogPost>;
 }

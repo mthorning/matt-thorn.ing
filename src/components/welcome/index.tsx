@@ -10,11 +10,10 @@ import ThemeToggle from '@/components/theme-toggle';
 import { constants } from '@/css-vars';
 import { FaGithub, FaLinkedin, FaBluesky } from 'react-icons/fa6';
 
-import './welcome.css';
 import classes from './welcome.module.css';
 
 function A(props: ComponentProps<typeof Link>) {
-return <Link {...props} target="_blank" rel="noopener noreferrer" />;
+  return <Link {...props} target="_blank" rel="noopener noreferrer" />;
 }
 
 const businessCardMachine = setup({
@@ -72,8 +71,10 @@ function Welcome({ showAbout }: { showAbout: () => void }) {
   return (
     <div className={classes.card}>
       <div className={classes.cardHeader}>
-        <h1>Welcome</h1>
-        <h3>It&apos;s not much, but it&apos;s home</h3>
+        <h1 className={classes.title}>Welcome</h1>
+        <h3 className={classes.subtitle}>
+          It&apos;s not much, but it&apos;s home
+        </h3>
       </div>
       <div className={classes.cardContent}>
         <button onClick={() => showAbout()}>About</button>

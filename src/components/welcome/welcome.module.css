@@ -5,6 +5,15 @@
   );
 }
 
+.title {
+  color: light-dark(var(--light-primary), var(--dark-primary));
+}
+
+.subtitle {
+  color: light-dark(var(--light-secondary), var(--dark-secondary));
+}
+
+
 .zeroWidth {
   width: 0;
 }
