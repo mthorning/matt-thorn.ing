@@ -20,4 +20,24 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
+  border: 1px outset light-dark(var(--light-neutral), var(--dark-neutral));
+  border-radius: 0;
+}
+
+.button[disabled] {
+  cursor: default;
+}
+
+.exploded {
+  border: 1px solid red;
+  color: red;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.explosion {
+  position: absolute;
+  top: 3px;
+  left: 4px;
 }
